@@ -1,50 +1,28 @@
-# React + TypeScript + Vite
+Organizador de Subscrições - Micro SaaS
+Organizador de Subscrições é uma aplicação micro SaaS que ajuda usuários a gerenciar suas assinaturas de serviços de streaming, software e outros. Com uma interface intuitiva e funcionalidades robustas, o aplicativo centraliza informações essenciais sobre suas subscrições, permitindo um controle mais eficaz dos gastos.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Funcionalidades Principais
+Cadastro de Serviços: Adicione e gerencie suas assinaturas de forma fácil.
+Categorias Personalizadas: Organize as subscrições de acordo com suas preferências.
+Relatório de Gastos: Visualize seus gastos mensais e anualmente.
+Alertas de Renovação: Receba notificações sobre renovações de assinaturas.
+Integração com Stripe: Pagamentos seguros e gestão de assinaturas premium.
+Tecnologias Utilizadas
+Backend:
 
-Currently, two official plugins are available:
+Node.js com Express
+PostgreSQL
+TypeORM
+Autenticação JWT
+Frontend:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Vite
+React
+React Modal
+Shadch UI
+Benefícios
+Centralização: Tenha todas as suas subscrições em um só lugar.
+Economia: Monitore seus gastos e evite surpresas na fatura.
+Facilidade de Uso: Interface amigável para gestão de serviços.
+Para mais informações, entre em contato: contatodionisiobenevides@gmail.com.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
