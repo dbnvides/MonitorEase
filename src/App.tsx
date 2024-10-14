@@ -3,7 +3,7 @@ import { Header } from "./components/header"
 
 const App = () => {
   return (
-    <div className="h-min-screen w-screen bg-black flex flex-col">
+    <div className="h-min-screen w-min-screen bg-black flex flex-col overflow-hidden">
       <Header />
       <Dashboard/>
     </div>
