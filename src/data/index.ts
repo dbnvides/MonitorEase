@@ -6,6 +6,7 @@ export interface DataStream{
         pt: string;
         en: string;
     };
+    categoria?: string;
 }
 
 export const databaseStreaming:DataStream[] = [

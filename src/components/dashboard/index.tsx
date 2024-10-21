@@ -1,13 +1,16 @@
 import { databaseStreaming, type DataStream } from "@/data";
 import { Card } from "../card";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button"
-import { Modal } from "../modal";
+import { ModalViewService } from "../modal/index";
 import { Wallet,UserRoundPen,Calendar } from 'lucide-react';
+import { ModalContext } from "@/context/ModalContext";
+import { ModalAddService } from "../modal/modalAddnewService";
 
 
 export const Dashboard = () => {
   const [mySubs, setMySubs] = useState<DataStream[] | []>([])
+  const {openModal,openAddModal} = useContext(ModalContext)
 
   useEffect(()=>{
     const addnewStream = () =>{
@@ -19,6 +22,8 @@ export const Dashboard = () => {
 
  return (
   <>
+  <ModalViewService />
+  <ModalAddService />
    <main className="bg-zinc-950 min-h-screen w-full py-20">
     {/* <section className="text-zinc-50 h-[200px] w-full">
       <div className="container p-4 flex flex-col gap-4 mx-auto">
@@ -61,12 +66,13 @@ export const Dashboard = () => {
       <div className="container p-4 flex flex-col gap-4 mx-auto">
         <div className="flex justify-between items-center">
           <h2 className="text-zinc-50 font-thin text-xl">My Subscribe</h2>
-          <Button className=" border-green-500 border text-green-500 hover:bg-green-500 hover:text-zinc-50 hover:border-zinc-50 rounded-xl">Add new Service</Button>
+          <Button className=" border-green-500 border text-green-500 hover:bg-green-500 hover:text-zinc-50 hover:border-zinc-50 rounded-xl"
+          onClick={openAddModal}>Add new Service</Button>
         </div>
         <ul className="flex flex-wrap gap-4 justify-start py-2">
         {
           mySubs.length > 0 && mySubs.map(stream => (
-            <Card id={stream.id} descricao={stream.descricao} imagem={stream.imagem} nome={stream.nome} key={stream.id}/>
+            <Card id={stream.id} descricao={stream.descricao} imagem={stream.imagem} nome={stream.nome} key={stream.id} modal={() => openModal(item)}/>
           ))
         }
         </ul>
