@@ -6,11 +6,12 @@ import { ModalViewService } from "../modal/index";
 import { Wallet,UserRoundPen,Calendar } from 'lucide-react';
 import { ModalContext } from "@/context/ModalContext";
 import { ModalAddService } from "../modal/modalAddnewService";
+import { ModalLogin } from "../modal/modalLogin";
 
 
 export const Dashboard = () => {
   const [mySubs, setMySubs] = useState<DataStream[] | []>([])
-  const {openModal,openAddModal} = useContext(ModalContext)
+  const {openModal,openAddModal, modalLogin} = useContext(ModalContext)
 
   useEffect(()=>{
     const addnewStream = () =>{
@@ -24,6 +25,8 @@ export const Dashboard = () => {
   <>
   <ModalViewService />
   <ModalAddService />
+  <ModalLogin />
+
    <main className="bg-zinc-950 min-h-screen w-full py-20">
     {/* <section className="text-zinc-50 h-[200px] w-full">
       <div className="container p-4 flex flex-col gap-4 mx-auto">
@@ -37,7 +40,7 @@ export const Dashboard = () => {
     </section> */}
     <section>
       <div className="container mx-auto p-4">
-        <main className="flex gap-2 bg-gradient-to-r justify-between from-zinc-900 to-blue-600 rounded-[8px] h-[100px] border-2 p-2">
+        <main className="flex gap-2 bg-gradient-to-r justify-between items-center from-zinc-900 to-blue-600 rounded-[8px] h-[100px] border-2 p-2">
           <section className="w-full flex p-2 justify-between">
            <div className="flex flex-row items-center h-20 text-white text-xl md:text-2xl">
             <UserRoundPen/>
