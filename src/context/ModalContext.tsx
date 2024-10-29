@@ -11,6 +11,8 @@ export interface ModalContextValue {
   openAddModal: () => void
   modalLogin: boolean
   setModalLogin: React.Dispatch<React.SetStateAction<boolean>>
+  modalRegister: boolean
+  setModalRegister: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 interface ModalProviderProps {
@@ -26,6 +28,7 @@ export const ModalProvider = ({ children }: ModalProviderProps) => {
   const [modalAddIsOpen, setAddIsOpen] = useState(false)
   const [itemOpen, setItemOpen] = useState<SubscribeInterface | null>(null)
   const [modalLogin, setModalLogin] = useState(false)
+  const [modalRegister, setModalRegister] = useState(false)
 
   const openModal = (service: SubscribeInterface) => {
     setItemOpen(service)
@@ -37,6 +40,7 @@ export const ModalProvider = ({ children }: ModalProviderProps) => {
     setAddIsOpen(false)
     setItemOpen(null)
     setModalLogin(false)
+    setModalRegister(false)
   }
 
   const openAddModal = () => {
@@ -54,7 +58,9 @@ export const ModalProvider = ({ children }: ModalProviderProps) => {
         modalAddIsOpen,
         openAddModal,
         modalLogin,
-        setModalLogin
+        setModalLogin,
+        modalRegister,
+        setModalRegister
       }}
     >
       {children}
